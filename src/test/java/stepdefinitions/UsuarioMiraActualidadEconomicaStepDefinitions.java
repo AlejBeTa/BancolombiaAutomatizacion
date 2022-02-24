@@ -9,7 +9,10 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
+import tasks.AccederActualidadEconomica;
 import tasks.AccederBancolombia;
+import tasks.AccederCapitalInteligente;
+import tasks.AccederEmpresas;
 import utils.drivers.MyChromeDriver;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static utils.constants.Constants.URL_BANCOLOMBIA;
@@ -33,14 +36,15 @@ public class UsuarioMiraActualidadEconomicaStepDefinitions {
 
     @And("^selecciona Empresas$")
     public void seleccionaEmpresas() {
+        OnStage.theActorInTheSpotlight().wasAbleTo(AccederEmpresas.acceder());
     }
 
     @And("^selecciona Capital Inteligente$")
-    public void seleccionaCapitalInteligente() {
+    public void seleccionaCapitalInteligente() {OnStage.theActorInTheSpotlight().wasAbleTo(AccederCapitalInteligente.acceder());
     }
 
     @When("^da click en Actualidad economica$")
-    public void daClickEnActualidadEconomica() {
+    public void daClickEnActualidadEconomica() {OnStage.theActorInTheSpotlight().wasAbleTo(AccederActualidadEconomica.acceder());
     }
 
     @And("^busca \"([^\"]*)\"$")
