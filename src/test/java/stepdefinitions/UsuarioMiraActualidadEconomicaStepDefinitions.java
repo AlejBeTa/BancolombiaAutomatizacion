@@ -10,11 +10,14 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
+import org.hamcrest.Matchers;
+import questions.VerificarPDF;
 import tasks.*;
 import utils.drivers.MyChromeDriver;
+import utils.pdf.LeerPDF;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static utils.constants.Constants.NOMBRE_REPORTE;
-import static utils.constants.Constants.URL_BANCOLOMBIA;
+import static utils.constants.Constants.*;
 
 public class UsuarioMiraActualidadEconomicaStepDefinitions {
 
@@ -53,11 +56,12 @@ public class UsuarioMiraActualidadEconomicaStepDefinitions {
     }
 
     @Then("^descarga el reporte$")
-    public void descargaElReporte() {
+    public void descargaElReporte() {OnStage.theActorInTheSpotlight().wasAbleTo(DescargarPDF.descargar());
     }
 
     @And("^verifica la descarga$")
-    public void verificaLaDescarga() {
+    public void verificaLaDescarga() throws InterruptedException {
+        OnStage.theActorInTheSpotlight().should(seeThat(VerificarPDF.Texto(), Matchers.is(PAGINA_UNO_PDF)));
     }
 }
 
