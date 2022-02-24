@@ -6,6 +6,6 @@ Feature: Yo como usuario deseo ver la actualidad econimica de bancolombia
       And selecciona Empresas
       And selecciona Capital Inteligente
       When da click en Actualidad economica
-      And busca "OPEP+ aumentará la oferta de petróleo en julio de 2021"
+      And busca el reporte
       Then descarga el reporte
       And verifica la descarga
